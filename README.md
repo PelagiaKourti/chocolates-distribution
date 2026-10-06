@@ -1,19 +1,21 @@
-# chocolates-distribution
-Distributing chocolate bars among children with the fewest cuts.
+chocolates-distribution
+# Distributing chocolate bars among children with the fewest cuts.
 
 
-The PROBLEM:
+## The PROBLEM:
 There are m chocolate bars of varying (integer) length and n hungry children who want differing
 amounts of chocolate (again integer values). You can cut the chocolate bars in a way that every
 child gets the desired amount. Write a programme to distribute the chocolate using the least
 number of cuts.
-Example: Suppose that 3 chocolate bars have lengths {2,5,7} and 4 children want {3,2,5,1}. As a
+
+Example: 
+Suppose that 3 chocolate bars have lengths {2,5,7} and 4 children want {3,2,5,1}. As a
 result, you can solve the problem by making 2 cuts.
 We are more interested in solutions that get close to the least possible time required, rather
 than those that take an exponential amount of time. 
 
 
-The logic I use is the following. 
+## The logic I use is the following: 
 I first add up all the desired amounts and I add up all the existing amounts of chocolate.
 
 According to the exercise, the chocolates are always enough for the children.
@@ -43,20 +45,18 @@ I said that (ideally) there are not "subgroups" in the groups as I explained abo
 So, I will need to make exactly 1 cut for every kid, except the last kid that will need 0 cuts, that will take the remaining piece (or the remaining piece and one (or more) whole chocolate).
 
 Hence, in the ideal case (no subgroups case), 
-if there are " x_i " kids in the " i_th " group, then, I will have exactly " x_i - 1 " cuts. 
+if there are $x_i$  kids in the  $i_{th}$ group, then, I will have exactly $x_i - 1$ cuts. 
 We said that the kids that take whole chocolates need 0 cuts.
-So, the total amount of cuts is " SUM_{i} ( x_i - 1 )".
+So, the total amount of cuts is $\Sigma_{i} ( x_i - 1 )$.
 
-So, for every case (ideal or not), an upper bound for the total amount of cuts is " SUM_{i} ( x_i - 1 )".
+So, for every case (ideal or not), an upper bound for the total amount of cuts is  $\Sigma_{i} ( x_i - 1 )$.
 
-Let it be "w" the number of kids with whole chocolates.
-Let it be "g" the number of groups (including those with kid that takes whole chocolate(s)).
+Let it be $w$ the number of kids with whole chocolates.
+Let it be $g$ the number of groups (including those with kid that takes whole chocolate(s)).
 So, the total amount of cuts is at most:
 
-SUM_{i} ( x_i - 1 )                           =
-SUM_{i} ( x_i - 1 ) + w - w                   = 
-SUM_{i} ( x_i )     + w     - SUM_{i} (1) - w =
-         n                  -        g 
+$\Sigma_{i} ( x_i - 1 )                           = $
+$\Sigma_{i} ( x_i - 1 ) + w - w                   = $
+$\Sigma_{i} ( x_i )     + w     - \Sigma_{i} (1) - w =         n                  -        g $
 
-#THEREFORE, the total amount of cuts is at most (n - g), 
-# where "n" is the number of kids and "g" is the number of groups.
+Therefore, the total amount of cuts is at most $n - g$, where $n$ is the number of kids and $g$ is the number of groups.
