@@ -1,5 +1,5 @@
-chocolates-distribution
-# Distributing chocolate bars among children with the fewest cuts.
+# Chocolates Distribution
+Distributing chocolate bars among children with the fewest cuts.
 
 
 ## The PROBLEM:
